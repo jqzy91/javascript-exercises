@@ -26,15 +26,16 @@ const findTheOldest = function (array) {
 
   let today = new Date().getFullYear();
 
-  for (let i = 0; i < array.length; i++) {
-    if (array[i].yearOfDeath === undefined) {
-      age.push((array[i]["yearOfDeath"] = today - array[i].yearOfBirth));
+  for (let i = 0; i < people.length; i++) {
+    if (people[i].yearOfDeath === undefined) {
+      age.push((people[i]["present"] = today));
+      age[i] = today - people[i].yearOfBirth;
     } else {
-      age.push(array[i].yearOfDeath - array[i].yearOfBirth);
+      age.push(people[i].yearOfDeath - people[i].yearOfBirth);
     }
   }
   let result = age.indexOf(Math.max(...age));
-  return array[result];
+  return people[result];
 };
 
 // const findTheOldest = function (array) {
