@@ -33,3 +33,34 @@ const para2 = document.createElement("p");
 para2.textContent = "ME TOO!";
 
 pinkDiv.appendChild(para2);
+
+const btn = document.querySelector("#btn");
+// btn.onclick = () => alert("Hello World~");
+
+const btn3 = document.querySelector("#btn3");
+// btn3.addEventListener("click", () => {
+//   alert("Hello World!");
+// });
+
+// named functions
+// Using named functions can clean up your code considerably, and is a really good idea if the function is something that you are going to want to do in multiple places.
+// Method 1.1
+function alertFunction() {
+  alert("YAY! YOU DID IT!");
+}
+// Method 2
+btn.onclick = alertFunction;
+// Method 3
+// btn3.addEventListener("click", alertFunction);
+// test 1.1
+// btn3.addEventListener("click", function (e) {
+//   console.log(e);
+// });
+// test 1.2
+// btn3.addEventListener("click", function (e) {
+//   console.log(e.target);
+// });
+// test 1.3
+btn3.addEventListener("click", function (e) {
+  e.target.style.background = "blue";
+});
