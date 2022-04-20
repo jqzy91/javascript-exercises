@@ -65,14 +65,11 @@
         key.classList.add("playing");
       }
 
-      function removeTransition(e) {
-        this.classList.remove("playing");
-        if (e.propertyName !== "transform") return;
-      }
-
       const keys = document.querySelectorAll(".key");
       keys.forEach((key) =>
-        key.addEventListener("transitionend", removeTransition)
+        key.addEventListener("transitionend", () => {
+          key.classList.remove("playing");
+        })
       );
 
       window.addEventListener("keydown", playSound);
