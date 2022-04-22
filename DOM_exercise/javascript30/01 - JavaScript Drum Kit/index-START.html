@@ -63,14 +63,11 @@
         audio.currentTime = 0;
         audio.play();
         key.classList.add("playing");
+        addEventListener("transitionend", () => {
+          key.classList.remove("playing");
+        });
       }
 
-      const keys = document.querySelectorAll(".key");
-      keys.forEach((key) =>
-        key.addEventListener("transitionend", () => {
-          key.classList.remove("playing");
-        })
-      );
       window.addEventListener("keydown", playSound);
     </script>
   </body>
